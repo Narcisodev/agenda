@@ -1,0 +1,33 @@
+<?php 
+    include_once("templat/header.php")
+    ?>
+    
+
+    <div class="container">
+    <?php include_once("templat/backbtn.html");?>
+        <h1 id="main-title">Editar Cadastro</h1>
+        <form id="create-form" action="<?= $BASE_URL ?>config/process.php" method="POST">
+        <input type="hidden" name="type" value="edit">
+        <input type="hidden" name="id" value="<?= $contact["id"] ?>">
+        <div class="form-group">
+          <label for="name">Nome do cliente:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="digite o nome do cliente" value="<?= $contact["name"] ?>" required>  
+        </div>
+        <div class="form-group">
+          <label for="phone">CNPJ do cliente :</label>
+          <input type="text" class="form-control" id="name" name="phone" placeholder="digite o cnpj do cliente" value="<?= $contact["phone"] ?>" required>  
+        </div>
+        <div class="form-group">
+          <label for="observations">Observações:</label>
+          <textarea type="text" class="form-control" id="name" name="observations" placeholder="insira as Observações" rows="3"> <?= $contact["observations"] ?></textarea> 
+        </div>
+        <div class="form-group">
+          <label for="observations">Data de Cadastro:</label>
+          <input type="date" class="form-control" id="date" name="date" rows="3" value='<?= $contact["date"]?>'>
+        </div>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+    </div>
+    <?php 
+    include_once("templat/footer.php")
+    ?>
